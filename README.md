@@ -1,8 +1,8 @@
-#sem-bump
+# sem-bump
 
 CLI tool for bumping semantic version strings
 
-##Usage
+## Usage
 
 ```
 usage: sem-bump [-h] [-v VERSION] [-f VERSION_FILE] [-i INCREMENT] {major,minor,patch}
@@ -22,13 +22,22 @@ optional arguments:
 
 Will also read the version string (-v) from stdin.
 
-##Examples
+## Examples
+Read from stdin and bump to next major version
 ```
-> echo 0.0.1 | sem-bump major -i 1  # Read from stdin and bump to next major version
+> echo 0.0.1 | sem-bump major -i 1  
 1.0.0
-> sem-bump major -i 1 -v 0.1.0  # Take version string as an arg and bump to next major version
+```
+
+Take version string as an arg and bump to next major version
+```
+> sem-bump major -i 1 -v 0.1.0
 1.0.0
-> echo "2.3.4" >version.txt  # Create a version.txt file and update it 25 patch releases
+```
+
+Create a version.txt file and update it 25 patch releases
+```
+> echo "2.3.4" >version.txt
 > sem-bump patch -f version.txt -i 25
 > cat version.txt
 2.3.29
